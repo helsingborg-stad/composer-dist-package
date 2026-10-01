@@ -7,7 +7,7 @@ set -eu
 FILE=composer.json
 
 DIST_REFERENCE="${1}"
-DIST_TYPE="${2:-zip}"
+DIST_TYPE="zip"
 DIST_FILE_NAME="${3:-dist.zip}"
 GITHUB_REPO="helsingborg-stad/composer-dist-package"
 DIST_URL="https://github.com/${GITHUB_REPO}/releases/download/${DIST_REFERENCE}/${DIST_FILE_NAME}"
