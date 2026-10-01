@@ -60,7 +60,7 @@ start() {
             if [ -z "$increment_type" ] || [ "$increment_type" == "patch" ]; then
                 increment_type="minor"
             fi
-        elif [[ $message =~ ^((fix|build|perf|refactor|revert|chore)(\(.+\))?:) ]]; then
+        elif [[ $message =~ ^((fix|build|perf|refactor|revert|chore|docs)(\(.+\))?:) ]]; then
             if [ -z "$increment_type" ]; then
                 increment_type="patch"
             fi
