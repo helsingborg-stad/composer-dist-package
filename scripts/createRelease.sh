@@ -22,4 +22,4 @@ curl -L \
     draft: false,
     prerelease: false,
     generate_release_notes: false
-  }')"
+  }')" > /dev/null

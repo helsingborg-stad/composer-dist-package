@@ -39,3 +39,4 @@ bash ./scripts/createRelease.sh \
     $CONFIG_COMPOSER_DIST_GITHUB_REPO \
     $GENERATED_VERSION \
     $GH_TOKEN 
+echo "✔ release created on github"
