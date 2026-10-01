@@ -22,10 +22,10 @@ jobs:
       
       - name: Generate version
         id: version
-        run: ./generateVersion.sh
+        run: ./generateVersion.sh >> $GITHUB_OUTPUT
 
       - name: Set tag from generated version
-        run: git tag "${{steps.version.outputs.stdout}}"
+        run: git tag "${{steps.version.outputs.*}}"
 
       - name: Push tag
         run: git push origin tag "${{steps.version.outputs.result}}"
