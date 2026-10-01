@@ -5,10 +5,7 @@
 # minor: feat, style
 # patch: build, fix, perf, refactor, revert
 
-echo "Generate version: $GENERATE_VERSION"
-
 LAST_TAG=$(git describe --tags --abbrev=0 --always)
-echo "Last tag: #$LAST_TAG#"
 PATTERN="^[0-9]+\.[0-9]+\.[0-9]+$"
 
 increment_version() {
@@ -72,13 +69,13 @@ start() {
 
     if [ -n "$increment_type" ]; then
         new_version=$(increment_version $LAST_TAG $increment_type)
-        echo "New version: $new_version"
+        echo "$new_version"
         remove_file
-        exit 1
+        exit 0
     else
         echo "No changes requiring a version increment."
         remove_file
-        exit 0
+        exit 1
     fi
 }
 

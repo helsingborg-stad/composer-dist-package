@@ -1,0 +1,31 @@
+name: Create new tag from conventional commits
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+
+    steps:
+      
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Generate version
+        id: version
+        run: ./generateVersion.sh
+
+      - name: Set tag from generated version
+        run: git tag "${{steps.version.outputs.result}}"
+
+      - name: Push tag
+        run: git push origin tag "${{steps.version.outputs.result}}"
