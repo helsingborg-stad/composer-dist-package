@@ -23,14 +23,14 @@ bash ./scripts/updateComposerVersion.sh \
     $CONFIG_COMPOSER_DIST_FILE_NAME \
     $CONFIG_COMPOSER_DIST_GITHUB_REPO
 
-echo "✔ updated $CONFIG_COMPOSER_FILE dist information"
+echo "✔ $CONFIG_COMPOSER_FILE dist information updated"
 
 git add $CONFIG_COMPOSER_FILE
 git commit --quiet -m "release: $GENERATED_VERSION"
-echo "✔ commited"
+echo "✔ git commit 'release: $GENERATED_VERSION'"
 git tag $GENERATED_VERSION
-echo "✔ tagged"
+echo "✔ git tag $GENERATED_VERSION"
 git push --quiet
-echo "✔ pushed commit"
+echo "✔ git push"
 git push --quiet --tags
-echo "✔ pushed tag"
+echo "✔ git push --tags"
