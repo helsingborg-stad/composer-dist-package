@@ -4,12 +4,12 @@
 
 set -eu
 
-FILE=composer.json
+FILE="${1}"
 
-DIST_REFERENCE="${1}"
-DIST_TYPE="zip"
-DIST_FILE_NAME="${3:-dist.zip}"
-GITHUB_REPO="helsingborg-stad/composer-dist-package"
+DIST_REFERENCE="${2}"
+DIST_TYPE="${3}"
+DIST_FILE_NAME="${4}"
+GITHUB_REPO="${5}"
 DIST_URL="https://github.com/${GITHUB_REPO}/releases/download/${DIST_REFERENCE}/${DIST_FILE_NAME}"
 
 tmp="${FILE}.tmp.$$"
