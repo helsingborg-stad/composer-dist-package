@@ -25,7 +25,7 @@ jobs:
         run: ./generateVersion.sh
 
       - name: Set tag from generated version
-        run: git tag "${{steps.version.outputs.result}}"
+        run: git tag "${{steps.version.outputs.stdout}}"
 
       - name: Push tag
         run: git push origin tag "${{steps.version.outputs.result}}"
