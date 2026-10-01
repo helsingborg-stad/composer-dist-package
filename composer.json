@@ -1,0 +1,16 @@
+{
+    "name": "helsingborg-stad/composer-dist-package",
+    "description": "Poc package to verify theory of specific package dist",
+    "autoload": {
+        "psr-4": {
+            "HelsingborgStad\\ComposerDistPackage\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Thor Brink",
+            "email": "thor.brink@helsingborg.se"
+        }
+    ],
+    "require": {}
+}
