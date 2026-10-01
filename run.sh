@@ -30,7 +30,7 @@ git commit --quiet -m "release: $GENERATED_VERSION"
 echo "commited"
 git tag $GENERATED_VERSION
 echo "tagged"
-git push
+git push --quiet
 echo "pushed"
-git push --tags
+git push --quiet --tags
 echo "tags pushed"
