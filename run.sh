@@ -21,6 +21,6 @@ bash ./scripts/updateComposerVersion.sh \
     $CONFIG_COMPOSER_DIST_FILE_NAME \
     $CONFIG_COMPOSER_DIST_GITHUB_REPO
 
-git add --quiet $CONFIG_COMPOSER_FILE
-git commit -quiet -m "release: $GENERATED_VERSION"
-git tag -quiet $GENERATED_VERSION
+git add $CONFIG_COMPOSER_FILE
+git commit --quiet -m "release: $GENERATED_VERSION"
+git tag $GENERATED_VERSION
