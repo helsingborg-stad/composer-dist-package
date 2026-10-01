@@ -12,4 +12,14 @@ curl -L \
   -H "Authorization: Bearer $TOKEN" \
   -H "X-GitHub-Api-Version: 2026-03-10" \
   https://api.github.com/repos/$REPO/releases \
-  -d '{"tag_name":"$TAG","target_commitish":"main","name":"TAG","body":"","draft":false,"prerelease":false,"generate_release_notes":false}'
+  -d "$(jq -n \
+  --arg tag "$TAG" \
+  '{
+    tag_name: $tag,
+    target_commitish: "main",
+    name: $tag,
+    body: "",
+    draft: false,
+    prerelease: false,
+    generate_release_notes: false
+  }')"
