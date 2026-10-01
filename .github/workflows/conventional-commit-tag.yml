@@ -28,3 +28,14 @@ jobs:
 
       - name: Push tag
         run: git push origin "${{ steps.version.outputs.result }}"
+
+      - name: Create Release
+        id: create_release
+        uses: comnoco/create-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.version.outputs.result }}
+          release_name: ${{ steps.version.outputs.result }}
+          draft: false
+          prerelease: false
