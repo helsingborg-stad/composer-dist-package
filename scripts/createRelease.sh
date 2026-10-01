@@ -7,6 +7,7 @@ TAG="${2}"
 TOKEN="${3}"
 
 curl -L \
+  --no-progress-meter \
   -X POST \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer $TOKEN" \
