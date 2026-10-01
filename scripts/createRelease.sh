@@ -4,7 +4,7 @@ set -eu
 
 REPO="${1}"
 TAG="${2}"
-TOKEN="${2}"
+TOKEN="${3}"
 
 curl -L \
   -X POST \
