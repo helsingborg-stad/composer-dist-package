@@ -13,19 +13,18 @@ jobs:
         working-directory: ./
 
     steps:
-      
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Generate version
         id: version
-        run: ./generateVersion.sh >> $GITHUB_OUTPUT
+        run: echo "result=$(./generateVersion.sh)" >> "$GITHUB_OUTPUT"
 
       - name: Set tag from generated version
-        run: git tag "${{steps.version.outputs.*}}"
+        run: git tag "${{ steps.version.outputs.result }}"
 
       - name: Push tag
-        run: git push origin tag "${{steps.version.outputs.result}}"
+        run: git push origin "${{ steps.version.outputs.result }}"
