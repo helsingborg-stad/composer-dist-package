@@ -23,6 +23,10 @@ jobs:
         id: version
         run: echo "result=$(./generateVersion.sh)" >> "$GITHUB_OUTPUT"
 
+      - name: Update composer version
+        id: version
+        run: echo "result=$(./generateVersion.sh)" >> "$GITHUB_OUTPUT"
+
       - name: Set tag from generated version
         run: git tag "${{ steps.version.outputs.result }}"
 

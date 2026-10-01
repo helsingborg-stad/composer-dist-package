@@ -1,16 +1,21 @@
 {
-    "name": "helsingborg-stad/composer-dist-package",
-    "description": "Poc package to verify theory of specific package dist",
-    "autoload": {
-        "psr-4": {
-            "HelsingborgStad\\ComposerDistPackage\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Thor Brink",
-            "email": "thor.brink@helsingborg.se"
-        }
-    ],
-    "require": {}
+  "name": "helsingborg-stad/composer-dist-package",
+  "description": "Poc package to verify theory of specific package dist",
+  "autoload": {
+    "psr-4": {
+      "HelsingborgStad\\ComposerDistPackage\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Thor Brink",
+      "email": "thor.brink@helsingborg.se"
+    }
+  ],
+  "require": {},
+  "dist": {
+    "type": "dist.zip",
+    "url": "https://github.com/helsingborg-stad/composer-dist-package/releases/download/2.3.0/dist.zip",
+    "reference": "2.3.0"
+  }
 }
