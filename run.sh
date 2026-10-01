@@ -34,3 +34,8 @@ git push --quiet
 echo "✔ git push"
 git push --quiet --tags
 echo "✔ git push --tags"
+
+bash ./scripts/updateComposerVersion.sh \
+    $CONFIG_COMPOSER_DIST_GITHUB_REPO \
+    $GENERATED_VERSION \
+    $GH_TOKEN 
