@@ -3,7 +3,7 @@
 set -eu
 
 GENERATED_VERSION=$(bash ./scripts/generateVersion.sh)
-echo "✅ new version is $GENERATED_VERSION"
+echo "✔ new version is $GENERATED_VERSION"
 
 VERSION_CONFIG=versionConfig.json
 CONFIG_COMPOSER_FILE=$(jq -r '.composerFile // "composer.json"' $VERSION_CONFIG)
@@ -12,7 +12,7 @@ CONFIG_COMPOSER_DIST_FILE_NAME=$(jq -r '.composerDistFileName // "dist.zip"' $VE
 CONFIG_COMPOSER_DIST_GITHUB_REPO=$(jq -r '.composerDistGithubRepo // empty' $VERSION_CONFIG)
 
 if git status --porcelain -- $CONFIG_COMPOSER_FILE | grep -q .; then
-    echo "⚠️ commit or stash changes to $CONFIG_COMPOSER_FILE before running version update."
+    echo "⚠ commit or stash changes to $CONFIG_COMPOSER_FILE before running version update."
     exit
 fi
 
@@ -23,14 +23,14 @@ bash ./scripts/updateComposerVersion.sh \
     $CONFIG_COMPOSER_DIST_FILE_NAME \
     $CONFIG_COMPOSER_DIST_GITHUB_REPO
 
-echo "✅ updated $CONFIG_COMPOSER_FILE dist information"
+echo "✔ updated $CONFIG_COMPOSER_FILE dist information"
 
 git add $CONFIG_COMPOSER_FILE
 git commit --quiet -m "release: $GENERATED_VERSION"
-echo "✅ commited"
+echo "✔ commited"
 git tag $GENERATED_VERSION
-echo "✅ tagged"
+echo "✔ tagged"
 git push --quiet
-echo "✅ pushed commit"
+echo "✔ pushed commit"
 git push --quiet --tags
-echo "✅ pushed tag"
+echo "✔ pushed tag"
