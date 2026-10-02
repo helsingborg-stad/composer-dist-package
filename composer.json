@@ -15,7 +15,7 @@
   "require": {},
   "dist": {
     "type": "zip",
-    "url": "https://github.com/helsingborg-stad/composer-dist-package/releases/download/1.0.22/dist.zip",
-    "reference": "1.0.22"
+    "url": "https://github.com/helsingborg-stad/composer-dist-package/releases/download/1.0.23/dist.zip",
+    "reference": "1.0.23"
   }
 }
