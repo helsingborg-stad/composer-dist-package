@@ -9,7 +9,7 @@ VERSION_CONFIG=versionConfig.json
 CONFIG_COMPOSER_FILE=$(jq -r '.composerFile // "composer.json"' $VERSION_CONFIG)
 CONFIG_COMPOSER_DIST_TYPE=$(jq -r '.composerDistType // "zip"' $VERSION_CONFIG)
 CONFIG_COMPOSER_DIST_FILE_NAME=$(jq -r '.composerDistFileName // "dist.zip"' $VERSION_CONFIG)
-CONFIG_COMPOSER_DIST_GITHUB_REPO=$(jq -r '.composerDistGithubRepo // empty' $VERSION_CONFIG)
+CONFIG_COMPOSER_DIST_GITHUB_REPO=$(jq -r '.composerDistGithubRepo // empty' $VERSION_CONFIG) # remove, since we are triggering from repo already.
 
 if git status --porcelain -- $CONFIG_COMPOSER_FILE | grep -q .; then
     echo "⚠ commit or stash changes to $CONFIG_COMPOSER_FILE before running version update."
@@ -41,4 +41,4 @@ bash ./scripts/createRelease.sh \
     $GH_TOKEN 
 echo "✔ release created on github"
 
-echo "\n✔ done! Now you need to upload the artifact named $CONFIG_COMPOSER_DIST_FILE_NAME to the release named $GENERATED_VERSION"
+echo "✔ done! Now you need to upload the artifact named $CONFIG_COMPOSER_DIST_FILE_NAME to the release named $GENERATED_VERSION"

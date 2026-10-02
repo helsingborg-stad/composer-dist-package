@@ -1,6 +1,0 @@
-{
-    "composerFile": "composer.json",
-    "composerDistType": "zip",
-    "composerDistFileName": "dist.zip",
-    "composerDistGithubRepo": "helsingborg-stad/composer-dist-package"
-}
