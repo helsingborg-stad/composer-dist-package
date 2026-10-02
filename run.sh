@@ -26,7 +26,7 @@ bash ./scripts/updateComposerVersion.sh \
 echo "✔ $CONFIG_COMPOSER_FILE dist information updated"
 
 git add $CONFIG_COMPOSER_FILE
-git commit --quiet -m "release: $GENERATED_VERSION"
+git commit --quiet --amend
 echo "✔ git commit 'release: $GENERATED_VERSION'"
 git tag $GENERATED_VERSION
 echo "✔ git tag $GENERATED_VERSION"
