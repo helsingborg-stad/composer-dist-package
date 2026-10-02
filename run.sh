@@ -40,3 +40,5 @@ bash ./scripts/createRelease.sh \
     $GENERATED_VERSION \
     $GH_TOKEN 
 echo "✔ release created on github"
+
+echo "\n✔ done! Now you need to upload the artifact named $CONFIG_COMPOSER_DIST_FILE_NAME to the release named $GENERATED_VERSION"
